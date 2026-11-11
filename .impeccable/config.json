@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "repeated-container-text",
+        "value": "*",
+        "files": [
+          "docs/design/logos.html"
+        ],
+        "createdAt": "2026-11-10T23:00:52.961Z",
+        "reason": "Claude: the logo options page shows the product name in every logo, tab and preview slot on purpose (DEMO-STANDARD logo step)"
+      }
+    ]
+  }
+}
