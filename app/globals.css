@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* Tokens follow DESIGN.md. Light only. */
+@theme {
+  --color-paper: #f6f4ef;
+  --color-surface: #ffffff;
+  --color-sunk: #ece9e1;
+  --color-line: #dad5ca;
+  --color-ink: #1b1e2c;
+  --color-muted: #5b6070;
+  --color-brand: #2f3f8f;
+  --color-brand-deep: #222f70;
+  --color-brand-soft: #e2e6f5;
+  --color-on-brand: #ffffff;
+  --color-coral: #e8734f;
+  --color-coral-soft: #fbe3da;
+  --color-coral-ink: #8a3418;
+  --color-sun-soft: #fbecd2;
+  --color-sun-ink: #74460a;
+  --color-leaf-soft: #d9ecdd;
+  --color-leaf-ink: #1d5f33;
+  --color-bubble: #e9e6df;
+
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  background: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* One gesture for a state change: a hairline that draws from the left (DEMO-STANDARD.md, Motion). */
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hairline-draw {
+  transform-origin: left;
+  animation: draw 600ms var(--ease-settle) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hairline-draw {
+    animation: none;
+  }
+}
