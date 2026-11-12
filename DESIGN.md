@@ -8,7 +8,7 @@ A calm office desk for a trade business: warm paper, dark ink, one deep indigo f
 
 ## Logo
 
-**Not picked yet.** Options in `docs/design/logos.html` (A "Comes back", B "Welcome back", C "Due again"). Option A is in the app as a stand-in only, so the favicon and link preview are not empty. The founder picks; write the pick here. Sources to change together: `components/marks.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/opengraph-image.tsx`, `docs/banner.svg`.
+**Option A, "Comes back"** (picked by the founder 2026-11-11 from `docs/design/logos.html`): an arrow that goes out and turns back home, indigo square, coral arrowhead. Sources, changed together: `components/marks.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/opengraph-image.tsx`, `docs/banner.svg`.
 
 The sample company, Buttonwood Air, has its own mark: a green buttonwood leaf on a pale blue disc (`BusinessMark`). It is made up.
 

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { productMarkPaths } from "@/components/marks";
 
-// The home-screen icon, drawn from the same mark as app/icon.svg (option A, stand-in).
+// The home-screen icon, drawn from the same mark as app/icon.svg (option A, picked 2026-11-11).
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 

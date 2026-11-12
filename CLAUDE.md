@@ -23,7 +23,7 @@ A show-off app for TEKGUYZ package G, "Win-back": finds past customers who stopp
 | `lib/brand.ts` | The sample company's name, owner and area |
 | `components/demo/` | The demo screen and its frame |
 | `app/page.tsx` | The landing page |
-| `docs/design/logos.html` | Logo options (not picked yet) |
+| `docs/design/logos.html` | Logo options (A picked 2026-11-11) |
 | `DESIGN.md` | The look |
 
 ## Commands

@@ -1,5 +1,5 @@
-// Logos. The product mark is option A from docs/design/logos.html, a stand-in
-// until the founder picks (DESIGN.md, Logo). The business mark belongs to the
+// Logos. The product mark is option A from docs/design/logos.html, picked by
+// the founder 2026-11-11 (DESIGN.md, Logo). The business mark belongs to the
 // made-up Buttonwood Air.
 
 import { business } from "@/lib/brand";
