@@ -18,13 +18,13 @@ const steps: { id: Step; label: string }[] = [
   { id: "sent", label: "Sent and replies" },
 ];
 
-const chip = "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap";
-const card = "rounded-2xl border border-line bg-surface";
+const chip = "inline-flex items-center border-2 border-ink px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap";
+const card = "panel";
 
 function StepBar({ s }: { s: DemoState }) {
   return (
-    <nav aria-label="Demo steps" className="overflow-x-auto">
-      <ol className="flex min-w-max gap-1 border-b border-line">
+    <nav aria-label="Demo steps" className="overflow-x-auto" data-screen-ok="scroll-inside: the four step tabs scroll sideways on a phone">
+      <ol className="flex min-w-max gap-1 border-b-[3px] border-ink">
         {steps.map((st, i) => {
           const open = canOpen(s, st.id);
           const current = s.step === st.id;
@@ -35,9 +35,9 @@ function StepBar({ s }: { s: DemoState }) {
                 disabled={!open}
                 aria-current={current ? "step" : undefined}
                 onClick={() => update((x) => goTo(x, st.id))}
-                className={`inline-flex min-h-11 items-center gap-2 border-b-2 px-3 text-sm font-semibold ${current ? "border-brand text-ink" : "border-transparent text-muted enabled:hover:text-ink"} disabled:opacity-45`}
+                className={`inline-flex min-h-11 items-center gap-2 border-b-[6px] px-3 text-sm font-semibold ${current ? "border-ink text-ink" : "border-transparent text-muted enabled:hover:text-ink"} disabled:opacity-45`}
               >
-                <span className={`tabular flex size-6 items-center justify-center rounded-full text-xs ${current ? "bg-brand text-on-brand" : "bg-sunk"}`}>{i + 1}</span>
+                <span className={`tabular flex size-6 items-center justify-center border-2 border-ink text-xs ${current ? "bg-brand text-on-brand" : "bg-surface"}`}>{i + 1}</span>
                 {st.label}
               </button>
             </li>
@@ -89,7 +89,7 @@ function Records({ s }: { s: DemoState }) {
       <div className={`${card} mt-6 overflow-hidden`}>
         <table className="w-full text-left text-sm">
           <caption className="sr-only">Past customers and their visits</caption>
-          <thead className="bg-sunk text-xs text-muted">
+          <thead className="border-b-[3px] border-ink bg-sunk text-xs text-muted">
             <tr>
               <th scope="col" className="px-4 py-2.5 font-semibold">Customer</th>
               <th scope="col" className="hidden px-4 py-2.5 font-semibold sm:table-cell">System</th>
@@ -97,7 +97,7 @@ function Records({ s }: { s: DemoState }) {
               <th scope="col" className="hidden px-4 py-2.5 text-right font-semibold md:table-cell">Visits</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-line">
+          <tbody className="divide-y-2 divide-ink">
             {records.map((r, i) => {
               const last = lastVisit(r);
               return (
@@ -130,8 +130,8 @@ function Report({ s }: { s: DemoState }) {
   const by = (g: string) => scan.lapsed.filter((l) => l.group === g);
   return (
     <section aria-labelledby="report-h">
-      <div className="hairline-draw h-0.5 bg-brand" />
-      <p className="mt-4 text-sm font-semibold tracking-wide text-brand uppercase">Report</p>
+      <div className="hairline-draw h-1 bg-ink" />
+      <p className="mt-4 text-sm font-bold tracking-wide text-ink uppercase">Report</p>
       <h1 id="report-h" className="mt-1 font-display text-3xl font-semibold tracking-tight text-balance">
         {n} of {total} past customers have not been back in over a year.
       </h1>
@@ -155,7 +155,7 @@ function Report({ s }: { s: DemoState }) {
         {groupOrder.map((g) => (
           <div key={g} className={`${card} p-4`}>
             <h2 className="font-display text-lg font-semibold">{groups[g].title}</h2>
-            <ul className="mt-3 divide-y divide-line">
+            <ul className="mt-3 divide-y-2 divide-ink">
               {by(g).map((l) => (
                 <li key={l.id} className="py-2.5">
                   <p className="font-semibold">{customer(l.id).name}</p>
@@ -178,7 +178,7 @@ function Report({ s }: { s: DemoState }) {
 
 const statusChip: Record<Draft["status"], { label: string; tone: string }> = {
   waiting: { label: "Waiting for your OK", tone: "bg-sun-soft text-sun-ink" },
-  approved: { label: "Approved", tone: "bg-brand-soft text-brand" },
+  approved: { label: "Approved", tone: "bg-ink text-paper" },
   skipped: { label: "Skipped, won't be sent", tone: "bg-sunk text-muted" },
   sent: { label: "Sent (simulated)", tone: "bg-leaf-soft text-leaf-ink" },
 };
@@ -207,7 +207,7 @@ function DraftCard({ d, l }: { d: Draft; l: Lapsed }) {
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={5}
-            className="mt-1 w-full rounded-xl border border-line bg-paper p-3 text-[15px] leading-snug"
+            className="mt-1 w-full border-[3px] border-ink bg-surface p-3 text-[15px] leading-snug"
           />
           <div className="mt-2 flex flex-wrap gap-2">
             <button
@@ -233,7 +233,7 @@ function DraftCard({ d, l }: { d: Draft; l: Lapsed }) {
           </div>
         </div>
       ) : (
-        <p className="mt-3 max-w-prose rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2.5 text-[15px] leading-snug">
+        <p className="mt-3 max-w-prose border-2 border-ink bg-bubble px-3.5 py-2.5 text-[15px] leading-snug">
           {d.text}
           {d.edited ? <span className="mt-1 block text-xs text-muted">Edited by you</span> : null}
         </p>
@@ -285,7 +285,7 @@ function Drafts({ s }: { s: DemoState }) {
       <p className="mt-2 max-w-2xl text-muted">
         Read it, change a word if you like, then approve it or skip it. A message you did not approve is never sent. That is the whole point.
       </p>
-      <div className="sticky top-0 z-10 -mx-4 mt-5 border-y border-line bg-paper/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border">
+      <div className="sticky top-0 z-10 -mx-4 mt-5 border-y-[3px] border-ink bg-surface px-4 py-3 sm:mx-0 sm:border-[3px] sm:shadow-[4px_4px_0_var(--color-ink)]">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="tabular text-sm" aria-live="polite">
             <span className="font-semibold">{approved} approved</span> · {count("waiting")} waiting · {count("skipped")} skipped
@@ -314,7 +314,7 @@ function Sent({ s }: { s: DemoState }) {
   const notSent = s.drafts.filter((d) => d.status !== "sent");
   return (
     <section aria-labelledby="sent-h">
-      <div className="hairline-draw h-0.5 bg-leaf-ink" />
+      <div className="hairline-draw h-1 bg-ink" />
       <h1 id="sent-h" className="mt-4 font-display text-3xl font-semibold tracking-tight">
         {sent.length} sent (simulated)
       </h1>
@@ -344,11 +344,11 @@ function Sent({ s }: { s: DemoState }) {
                 </span>
               </div>
               <div className="mt-3 grid gap-2 text-[15px] leading-snug">
-                <p className="max-w-[85%] justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">{d.text}</p>
-                {reply ? <p className="max-w-[85%] justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">{reply.text}</p> : null}
+                <p className="max-w-[85%] justify-self-end border-2 border-ink bg-brand px-3.5 py-2 text-on-brand">{d.text}</p>
+                {reply ? <p className="max-w-[85%] justify-self-start border-2 border-ink bg-bubble px-3.5 py-2">{reply.text}</p> : null}
                 {reply?.booked ? (
                   <>
-                    <p className="max-w-[85%] justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">
+                    <p className="max-w-[85%] justify-self-end border-2 border-ink bg-brand px-3.5 py-2 text-on-brand">
                       You&rsquo;re booked for {visitSlot}. See you then! — {business.owner}
                     </p>
                     <p className={`${chip} justify-self-center bg-leaf-soft text-leaf-ink`}>On the calendar · {visitSlot}</p>
