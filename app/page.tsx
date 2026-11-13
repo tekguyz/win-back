@@ -10,21 +10,21 @@ import { demoRoutes } from "@/lib/demo-routes";
 function HeroDraft() {
   return (
     <div aria-hidden="true" className="relative mx-auto w-full max-w-[400px]">
-      <div className="panel p-5">
+      <div className="rounded-3xl border border-line bg-surface p-5 shadow-[0_30px_70px_-35px_rgba(27,30,44,0.5)]">
         <div className="flex items-center justify-between gap-2">
           <p className="font-display text-lg font-semibold">Carmen R.</p>
-          <span className="border-2 border-ink bg-sun-soft px-2.5 py-0.5 text-xs font-semibold text-sun-ink">Waiting for your OK</span>
+          <span className="rounded-full bg-sun-soft px-2.5 py-0.5 text-xs font-semibold text-sun-ink">Waiting for your OK</span>
         </div>
         <p className="text-sm text-muted">4 tune-ups with you. The last one was 15 months ago.</p>
-        <p className="mt-3 border-2 border-ink bg-bubble px-3.5 py-2.5 text-[15px] leading-snug">
+        <p className="mt-3 rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2.5 text-[15px] leading-snug">
           Hi Carmen, it&rsquo;s {business.owner} from {business.name}. Your 3-ton central AC is due for its yearly tune-up. Want me to save you a spot before the heat?
         </p>
         <div className="mt-4 flex gap-2">
-          <span className="inline-flex min-h-11 items-center border-[3px] border-ink bg-brand px-5 font-semibold text-on-brand shadow-[4px_4px_0_var(--color-ink)]">Approve</span>
-          <span className="inline-flex min-h-11 items-center border-[3px] border-ink bg-surface px-5 font-semibold shadow-[4px_4px_0_var(--color-ink)]">Edit</span>
+          <span className="inline-flex min-h-11 items-center rounded-full bg-brand px-5 font-semibold text-on-brand">Approve</span>
+          <span className="inline-flex min-h-11 items-center rounded-full border border-line px-5 font-semibold">Edit</span>
         </div>
       </div>
-      <div className="absolute -top-9 right-2 flex items-center gap-2 panel px-3 py-2">
+      <div className="absolute -top-5 right-2 flex items-center gap-2 rounded-2xl border border-line bg-surface px-3 py-2 shadow-[0_16px_40px_-24px_rgba(27,30,44,0.5)] sm:-right-8">
         <BusinessMark size={24} />
         <p className="text-sm font-semibold">8 past customers found</p>
       </div>
@@ -59,7 +59,7 @@ export default function Landing() {
       <main className="flex-1">
         <section className="mx-auto grid max-w-6xl gap-14 px-4 pt-8 pb-20 sm:px-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:items-center md:pt-16">
           <div>
-            <p className="text-sm font-bold tracking-wide text-ink uppercase">For businesses with a yearly visit</p>
+            <p className="text-sm font-semibold tracking-wide text-brand uppercase">For businesses with a yearly visit</p>
             <h1 className="mt-3 font-display text-5xl leading-[1.04] font-semibold tracking-tight text-balance sm:text-6xl">
               Bring back the customers who stopped calling.
             </h1>
@@ -76,7 +76,7 @@ export default function Landing() {
           <HeroDraft />
         </section>
 
-        <section className="dark-zone border-y-[3px] border-ink bg-ink text-paper">
+        <section className="border-y border-line bg-surface">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2 className="max-w-2xl font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
               They chose you once. They just haven&rsquo;t heard from you since.
@@ -84,9 +84,9 @@ export default function Landing() {
             <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s) => (
                 <li key={s.n}>
-                  <span className="tabular flex size-10 items-center justify-center border-[3px] border-paper bg-paper font-display text-lg font-semibold text-ink">{s.n}</span>
+                  <span className="tabular flex size-10 items-center justify-center rounded-full bg-brand-soft font-display text-lg font-semibold text-brand">{s.n}</span>
                   <h3 className="mt-4 font-display text-xl font-semibold">{s.title}</h3>
-                  <p className="mt-2 text-paper/90">{s.body}</p>
+                  <p className="mt-2 text-muted">{s.body}</p>
                 </li>
               ))}
             </ol>
@@ -98,7 +98,7 @@ export default function Landing() {
           <p className="mt-3 max-w-prose text-muted">Made for AC and heating companies with yearly service, and for dental and vet offices with recalls.</p>
           <dl className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {promises.map((p) => (
-              <div key={p.title} className="border-t-[3px] border-ink pt-3">
+              <div key={p.title} className="border-t-2 border-brand pt-3">
                 <dt className="font-semibold">{p.title}</dt>
                 <dd className="mt-1 text-muted">{p.body}</dd>
               </div>
@@ -106,15 +106,15 @@ export default function Landing() {
           </dl>
         </section>
 
-        <section className="dark-zone border-t-[3px] border-ink bg-ink text-on-brand">
+        <section className="bg-brand text-on-brand">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
             <div>
               <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">Run it on a sample company.</h2>
-              <p className="mt-3 max-w-2xl text-paper/90">
+              <p className="mt-3 max-w-2xl text-on-brand/85">
                 The demo opens {business.name}, a made-up AC company in South Florida, with its past-customer records. Scan them, read the report, approve the messages you like, and watch a reply book a visit.
               </p>
             </div>
-            <Link href={demoRoutes.demo} className="inline-flex min-h-12 items-center justify-center border-[3px] border-paper bg-coral px-7 text-lg font-semibold text-ink shadow-[4px_4px_0_var(--color-surface)] transition-[transform,box-shadow] duration-150 motion-reduce:transition-none hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_var(--color-surface)]">
+            <Link href={demoRoutes.demo} className="inline-flex min-h-12 items-center justify-center rounded-full bg-coral px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-paper">
               Try the demo
             </Link>
           </div>

@@ -13,9 +13,9 @@ export const productMarkPaths = {
 export function ProductMark({ size = 28, className = "" }: { size?: number; className?: string }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" className={className}>
-      <rect width="32" height="32" fill="#111111" />
-      <path d={productMarkPaths.arrow} fill="none" stroke="#fff8e1" strokeWidth="2.4" strokeLinecap="round" />
-      <path d={productMarkPaths.head} fill="none" stroke="#f2c230" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      <rect width="32" height="32" rx="8" fill="#2f3f8f" />
+      <path d={productMarkPaths.arrow} fill="none" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" />
+      <path d={productMarkPaths.head} fill="none" stroke="#e8734f" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -36,7 +36,7 @@ export function BusinessMark({ size = 32 }: { size?: number }) {
       <circle cx="16" cy="16" r="16" fill="#cfe3f0" />
       <path d="M16 25c-6-2.5-7.5-9-4-15 4 2 7.5 6.5 4 15z" fill="#2f6b4f" />
       <path d="M16 25c4-4 5.5-8.5 4.5-13" fill="none" stroke="#2f6b4f" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M16 25v-8" stroke="#fff8e1" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M16 25v-8" stroke="#f6f4ef" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   );
 }
