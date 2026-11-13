@@ -18,13 +18,14 @@ const steps: { id: Step; label: string }[] = [
   { id: "sent", label: "Sent and replies" },
 ];
 
-const chip = "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap";
-const card = "rounded-2xl border border-line bg-surface";
+// DESIGN.md, Shape: square cards under a 2px navy rule; status chips with 2px corners.
+const chip = "inline-flex items-center rounded-[2px] px-2 py-0.5 text-xs font-semibold whitespace-nowrap";
+const card = "border border-line border-t-2 border-t-brand bg-surface";
 
 function StepBar({ s }: { s: DemoState }) {
   return (
     <nav aria-label="Demo steps" className="overflow-x-auto">
-      <ol className="flex min-w-max gap-1 border-b border-line">
+      <ol className="flex min-w-max border-b border-line sm:gap-1">
         {steps.map((st, i) => {
           const open = canOpen(s, st.id);
           const current = s.step === st.id;
@@ -35,10 +36,10 @@ function StepBar({ s }: { s: DemoState }) {
                 disabled={!open}
                 aria-current={current ? "step" : undefined}
                 onClick={() => update((x) => goTo(x, st.id))}
-                className={`inline-flex min-h-11 items-center gap-2 border-b-2 px-3 text-sm font-semibold ${current ? "border-brand text-ink" : "border-transparent text-muted enabled:hover:text-ink"} disabled:opacity-45`}
+                className={`inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 border-b-2 px-2 text-sm font-semibold sm:gap-2 sm:px-3 ${current ? "border-brand text-ink" : "border-transparent text-muted enabled:hover:text-ink"} disabled:opacity-45`}
               >
-                <span className={`tabular flex size-6 items-center justify-center rounded-full text-xs ${current ? "bg-brand text-on-brand" : "bg-sunk"}`}>{i + 1}</span>
-                {st.label}
+                <span className={`tabular flex size-6 items-center justify-center rounded-[2px] text-xs ${current ? "bg-brand text-on-brand" : "bg-sunk"}`}>{i + 1}</span>
+                <span className={current ? undefined : "sr-only sm:not-sr-only"}>{st.label}</span>
               </button>
             </li>
           );
@@ -204,12 +205,14 @@ function DraftCard({ d, l }: { d: Draft; l: Lapsed }) {
           </label>
           <textarea
             id={`t-${d.id}`}
+            name={`message-${d.id}`}
+            autoComplete="off"
             value={text}
             onChange={(e) => setText(e.target.value)}
             rows={5}
-            className="mt-1 w-full rounded-xl border border-line bg-paper p-3 text-[15px] leading-snug"
+            className="mt-1 w-full resize-none rounded-[3px] border border-line bg-paper p-3 text-[15px] leading-snug transition-colors duration-150 hover:border-muted focus:border-brand focus:bg-surface"
           />
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2">
             <button
               type="button"
               className={primary}
@@ -233,13 +236,13 @@ function DraftCard({ d, l }: { d: Draft; l: Lapsed }) {
           </div>
         </div>
       ) : (
-        <p className="mt-3 max-w-prose rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2.5 text-[15px] leading-snug">
+        <p className="mt-3 max-w-prose rounded-2xl rounded-bl-sm bg-bubble break-words px-3.5 py-2.5 text-[15px] leading-snug">
           {d.text}
           {d.edited ? <span className="mt-1 block text-xs text-muted">Edited by you</span> : null}
         </p>
       )}
       {!editing ? (
-        <div className="mt-3 flex flex-wrap gap-2">
+        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
           {d.status === "waiting" ? (
             <>
               <button type="button" className={primary} onClick={() => update((x) => approve(x, d.id))}>
@@ -285,7 +288,7 @@ function Drafts({ s }: { s: DemoState }) {
       <p className="mt-2 max-w-2xl text-muted">
         Read it, change a word if you like, then approve it or skip it. A message you did not approve is never sent. That is the whole point.
       </p>
-      <div className="sticky top-0 z-10 -mx-4 mt-5 border-y border-line bg-paper/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border">
+      <div className="sticky top-0 z-10 -mx-4 mt-5 border-y border-line bg-paper/95 px-4 py-3 backdrop-blur sm:mx-0 sm:border sm:border-t-2 sm:border-t-brand">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="tabular text-sm" aria-live="polite">
             <span className="font-semibold">{approved} approved</span> · {count("waiting")} waiting · {count("skipped")} skipped
@@ -299,7 +302,7 @@ function Drafts({ s }: { s: DemoState }) {
       {open.length === 0 ? (
         <p className="mt-6 text-muted">Every message is sent or skipped.</p>
       ) : (
-        <ul className="mt-6 grid gap-4">
+        <ul className="mt-6 grid gap-4 [&_button]:scroll-mt-32 [&_textarea]:scroll-mt-32">
           {open.map((d) => (
             <DraftCard key={d.id + d.text} d={d} l={scan.lapsed.find((l) => l.id === d.id)!} />
           ))}
@@ -344,11 +347,11 @@ function Sent({ s }: { s: DemoState }) {
                 </span>
               </div>
               <div className="mt-3 grid gap-2 text-[15px] leading-snug">
-                <p className="max-w-[85%] justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">{d.text}</p>
-                {reply ? <p className="max-w-[85%] justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">{reply.text}</p> : null}
+                <p className="max-w-[min(85%,34rem)] break-words justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">{d.text}</p>
+                {reply ? <p className="max-w-[min(85%,34rem)] break-words justify-self-start rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2">{reply.text}</p> : null}
                 {reply?.booked ? (
                   <>
-                    <p className="max-w-[85%] justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">
+                    <p className="max-w-[min(85%,34rem)] break-words justify-self-end rounded-2xl rounded-br-sm bg-brand px-3.5 py-2 text-on-brand">
                       You&rsquo;re booked for {visitSlot}. See you then! — {business.owner}
                     </p>
                     <p className={`${chip} justify-self-center bg-leaf-soft text-leaf-ink`}>On the calendar · {visitSlot}</p>

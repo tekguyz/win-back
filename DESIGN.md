@@ -32,6 +32,24 @@ Status colors only ever appear as chips, never as large fills.
 
 Fraunces (600) for headings. Public Sans for everything else. Counts and months use tabular numbers.
 
+## Shape
+
+Editorial (set 2026-11-13, tekguyz/win-back#9). Like a printed office ledger: square edges and rules, not soft tiles.
+
+- **Cards:** 0px corners, a 1px `line` border and a heavier 2px `brand` rule on top. The sticky Approve bar uses the same rule from tablet width up.
+- **Buttons:** one solid `brand` button per group, 3px corners (`primary` in `components/buttons.ts`). The closing "Try the demo" is the same shape in `coral`.
+- **Secondary actions are underlined text links**, never a second button: `secondary` (brand ink) for Edit and Cancel, `quiet` (muted) for Skip, Undo skip and Back. Always underlined, 1.5px, 5px offset.
+- **Chips:** 2px corners. Step numbers in the step bar: small 2px squares.
+- **Fields:** the draft textarea has 3px corners, a `line` border that turns `brand` on focus, a brand caret, no resize grip.
+- **Text bubbles keep their round message shape.** They are texts, not cards. Bubbles cap at 34rem so a line stays readable on a wide screen.
+- **Landing steps:** a 1px ink rule over a large Fraunces numeral, no circle.
+- **Never:** pill buttons, `rounded-full` buttons, `rounded-xl` or `rounded-2xl` cards.
+- **Browser surfaces:** text selection in `brand-soft`, focus ring 2px `brand` with 3px corners, scrollbar in `line` on `paper`.
+
+## Frames
+
+No phone or browser frame is drawn in this demo. The owner's drafts and the sent texts show as message bubbles inside a card, which is the owner's own screen, not the customer's phone. If a phone is ever drawn, it follows `claude-config/LOOKS.md`, "Phone and browser frames".
+
 ## Layout
 
 Phone first. Every target is at least 44 px. The demo is one screen in four steps (Records, Report, Approve, Sent and replies) with a step bar on top. On the Approve step the count and the Send button stick to the top while scrolling.

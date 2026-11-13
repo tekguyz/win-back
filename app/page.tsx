@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { primary } from "@/components/buttons";
+import { primary, secondary } from "@/components/buttons";
 import { BusinessMark, Wordmark } from "@/components/marks";
 import { business } from "@/lib/brand";
 import { demoRoutes } from "@/lib/demo-routes";
@@ -10,21 +10,21 @@ import { demoRoutes } from "@/lib/demo-routes";
 function HeroDraft() {
   return (
     <div aria-hidden="true" className="relative mx-auto w-full max-w-[400px]">
-      <div className="rounded-3xl border border-line bg-surface p-5 shadow-[0_30px_70px_-35px_rgba(27,30,44,0.5)]">
+      <div className="border border-line border-t-2 border-t-brand bg-surface p-5 shadow-[0_30px_60px_-36px_rgba(27,30,44,0.45)]">
         <div className="flex items-center justify-between gap-2">
           <p className="font-display text-lg font-semibold">Carmen R.</p>
-          <span className="rounded-full bg-sun-soft px-2.5 py-0.5 text-xs font-semibold text-sun-ink">Waiting for your OK</span>
+          <span className="rounded-[2px] bg-sun-soft px-2 py-0.5 text-xs font-semibold text-sun-ink">Waiting for your OK</span>
         </div>
         <p className="text-sm text-muted">4 tune-ups with you. The last one was 15 months ago.</p>
-        <p className="mt-3 rounded-2xl rounded-bl-sm bg-bubble px-3.5 py-2.5 text-[15px] leading-snug">
+        <p className="mt-3 rounded-2xl rounded-bl-sm bg-bubble break-words px-3.5 py-2.5 text-[15px] leading-snug">
           Hi Carmen, it&rsquo;s {business.owner} from {business.name}. Your 3-ton central AC is due for its yearly tune-up. Want me to save you a spot before the heat?
         </p>
-        <div className="mt-4 flex gap-2">
-          <span className="inline-flex min-h-11 items-center rounded-full bg-brand px-5 font-semibold text-on-brand">Approve</span>
-          <span className="inline-flex min-h-11 items-center rounded-full border border-line px-5 font-semibold">Edit</span>
+        <div className="mt-4 flex items-center gap-4">
+          <span className={primary}>Approve</span>
+          <span className={secondary}>Edit</span>
         </div>
       </div>
-      <div className="absolute -top-5 right-2 flex items-center gap-2 rounded-2xl border border-line bg-surface px-3 py-2 shadow-[0_16px_40px_-24px_rgba(27,30,44,0.5)] sm:-right-8">
+      <div className="absolute -top-5 right-2 flex items-center gap-2 border border-line bg-surface px-3 py-2 shadow-[0_14px_32px_-22px_rgba(27,30,44,0.5)] lg:-right-8">
         <BusinessMark size={24} />
         <p className="text-sm font-semibold">8 past customers found</p>
       </div>
@@ -83,9 +83,9 @@ export default function Landing() {
             </h2>
             <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s) => (
-                <li key={s.n}>
-                  <span className="tabular flex size-10 items-center justify-center rounded-full bg-brand-soft font-display text-lg font-semibold text-brand">{s.n}</span>
-                  <h3 className="mt-4 font-display text-xl font-semibold">{s.title}</h3>
+                <li key={s.n} className="border-t border-ink/80 pt-4">
+                  <span className="tabular block font-display text-3xl leading-none font-semibold text-brand">{s.n}</span>
+                  <h3 className="mt-3 font-display text-xl font-semibold">{s.title}</h3>
                   <p className="mt-2 text-muted">{s.body}</p>
                 </li>
               ))}
@@ -114,7 +114,7 @@ export default function Landing() {
                 The demo opens {business.name}, a made-up AC company in South Florida, with its past-customer records. Scan them, read the report, approve the messages you like, and watch a reply book a visit.
               </p>
             </div>
-            <Link href={demoRoutes.demo} className="inline-flex min-h-12 items-center justify-center rounded-full bg-coral px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-paper">
+            <Link href={demoRoutes.demo} className="inline-flex min-h-12 items-center justify-center rounded-[3px] bg-coral px-7 text-lg font-semibold text-ink transition-colors duration-150 hover:bg-paper">
               Try the demo
             </Link>
           </div>

@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             Found in your own records. A message to each. You approve every one.
           </div>
           <div style={{ display: "flex", marginTop: "auto" }}>
-            <div style={{ display: "flex", padding: "14px 30px", borderRadius: 999, background: brand, color: "#fff", fontSize: 28, fontWeight: 700, fontFamily: "sans-serif" }}>
+            <div style={{ display: "flex", padding: "14px 30px", borderRadius: 4, background: brand, color: "#fff", fontSize: 28, fontWeight: 700, fontFamily: "sans-serif" }}>
               Try the demo · no signup
             </div>
           </div>
