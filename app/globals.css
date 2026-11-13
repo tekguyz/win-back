@@ -45,7 +45,26 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 2px;
-  border-radius: 6px;
+  border-radius: 3px;
+}
+
+/* Browser surfaces in the demo's own colors (DESIGN.md, Shape). */
+::selection {
+  background: var(--color-brand-soft);
+  color: var(--color-ink);
+}
+
+textarea {
+  caret-color: var(--color-brand);
+}
+
+textarea:focus-visible {
+  outline-offset: 0;
+}
+
+html {
+  touch-action: manipulation;
+  scrollbar-color: var(--color-line) var(--color-paper);
 }
 
 /* One gesture for a state change: a hairline that draws from the left (DEMO-STANDARD.md, Motion). */
