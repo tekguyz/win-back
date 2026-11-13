@@ -2,13 +2,25 @@
 
 The rulebook for how the app looks. Tokens live in `app/globals.css`; this file says why.
 
+## The five picks
+
+Decided 2026-11-13 (tekguyz/win-back#5), picked against `claude-config/LOOKS.md`. Closest row was quote-to-paid (square, black accent, hard rules); this look differs in ground, display font and body font, and in having hard offset shadows.
+
+| Column | Pick |
+| --- | --- |
+| Ground | Mustard yellow `#f2c230` for the page. Sections flip to black `#111111` with yellow text. Panels `#fff8e1` |
+| Accent | Black `#111111`: buttons, borders, links |
+| Display font | Zilla Slab 700 |
+| Body font | Work Sans |
+| Shape | Square corners. 3px black borders and a hard 4px offset shadow on panels and buttons. No pill buttons, no soft shadows |
+
 ## Feel
 
-A calm office desk for a trade business: warm paper, dark ink, one deep indigo for the product and its actions, and a coral accent for the mark and the closing call to action. Headings use a warm serif, because the app writes personal notes to people who already know the business. It should look like something an AC owner trusts, not a marketing tool.
+Loud, direct, sunny: a painted sign on a service van. Buttonwood Air wants its old customers back, so the page shouts it in a slab serif on yellow and black. Nothing is soft or rounded.
 
 ## Logo
 
-**Option A, "Comes back"** (picked by the founder 2026-11-11 from `docs/design/logos.html`): an arrow that goes out and turns back home, indigo square, coral arrowhead. Sources, changed together: `components/marks.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/opengraph-image.tsx`, `docs/banner.svg`.
+**Option A, "Comes back"** (picked by the founder 2026-11-11 from `docs/design/logos.html`): an arrow that goes out and turns back home. Recolored 2026-11-13: black square, cream arrow, yellow arrowhead, square corners. Sources, changed together: `components/marks.tsx`, `app/icon.svg`, `app/apple-icon.tsx`, `app/opengraph-image.tsx`, `docs/banner.svg`.
 
 The sample company, Buttonwood Air, has its own mark: a green buttonwood leaf on a pale blue disc (`BusinessMark`). It is made up.
 
@@ -16,21 +28,27 @@ The sample company, Buttonwood Air, has its own mark: a green buttonwood leaf on
 
 | Token | Use |
 | --- | --- |
-| `paper` `#f6f4ef` | page background |
-| `surface` `#ffffff` | cards |
-| `ink` `#1b1e2c` / `muted` `#5b6070` | text |
-| `brand` `#2f3f8f` | primary buttons, links, the product |
-| `coral` `#e8734f` | the mark's arrowhead, the closing "Try the demo" |
-| `sun-soft` / `sun-ink` | waiting for the owner's OK |
-| `brand-soft` | approved |
+| `paper` `#f2c230` | page background, text on black |
+| `surface` `#fff8e1` | panels |
+| `sunk` `#f0dc8a` | table header, skipped chips |
+| `ink` / `line` / `brand` `#111111` | text, every border, buttons, links |
+| `muted` `#4a3d00` | secondary text (6.4:1 on the yellow page, 10:1 on panels) |
+| `on-brand` `#f2c230` | text on black buttons and sections (11.3:1) |
+| `bubble` `#ffffff` | message bubbles, outlined in black |
+| `sun-soft` (yellow) | waiting for the owner's OK |
+| `ink` fill, yellow text | approved |
 | `coral-soft` / `coral-ink` | a customer replied |
 | `leaf-soft` / `leaf-ink` | sent (simulated), visit booked |
 
-Status colors only ever appear as chips, never as large fills.
+Status colors only ever appear as chips, never as large fills. Every chip has a 2px black border. Every text pair is WCAG AA or better.
 
 ## Type
 
-Fraunces (600) for headings. Public Sans for everything else. Counts and months use tabular numbers.
+Zilla Slab (700) for headings. Work Sans for everything else. Counts and months use tabular numbers.
+
+## Shape
+
+Square corners everywhere. Panels (`.panel` in `app/globals.css`) have a 3px black border and a 4px hard offset shadow. Buttons have the same border and shadow, move 2px toward it on hover, and press flat. Focus is a 3px ring that turns yellow on black (`.dark-zone`).
 
 ## Layout
 
@@ -42,4 +60,4 @@ Two gestures, both showing a change of state. The scan lights each record row in
 
 ## Demo banner
 
-Dark ink strip on top of the demo: "Demo: a made-up company. Nothing is really sent.", Reset demo, Leave the demo, Built by TEKGUYZ. It carries `data-demo-banner` so `tools/capture` can hide it.
+Black strip with yellow text on top of the demo: "Demo: a made-up company. Nothing is really sent.", Reset demo, Leave the demo, Built by TEKGUYZ. It carries `data-demo-banner` so `tools/capture` can hide it.

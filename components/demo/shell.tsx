@@ -23,7 +23,7 @@ function DemoBanner() {
   }
 
   return (
-    <aside aria-label="Demo" data-demo-banner className="bg-ink text-sm text-paper">
+    <aside aria-label="Demo" data-demo-banner className="dark-zone border-b-[3px] border-ink bg-ink text-sm text-paper">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-x-6 px-4 sm:px-6">
         <p className="py-2" role="status">
           {done ? "Back to the start: the records are not scanned yet." : "Demo: a made-up company. Nothing is really sent."}
@@ -35,7 +35,7 @@ function DemoBanner() {
           <Link href="/" className={bannerLink}>
             Leave the demo
           </Link>
-          <p className="text-paper/80">
+          <p className="text-paper/90">
             Built by{" "}
             <a href="https://tekguyz.com" className={`${bannerLink} text-paper underline`}>
               TEKGUYZ
@@ -52,12 +52,12 @@ export function DemoShell({ children }: { children: ReactNode }) {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-30 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-30 focus:border-[3px] focus:border-ink focus:bg-surface focus:px-4 focus:py-2"
       >
         Skip to content
       </a>
       <DemoBanner />
-      <header className="border-b border-line bg-surface">
+      <header className="border-b-[3px] border-ink bg-surface">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <BusinessName />
           <p className="hidden text-sm text-muted sm:block">Win-Back · past customers</p>
