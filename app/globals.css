@@ -2,27 +2,27 @@
 
 /* Tokens follow DESIGN.md. Light only. */
 @theme {
-  --color-paper: #f2c230;
-  --color-surface: #fff8e1;
-  --color-sunk: #f0dc8a;
-  --color-line: #111111;
-  --color-ink: #111111;
-  --color-muted: #4a3d00;
-  --color-brand: #111111;
-  --color-brand-deep: #2b2b2b;
-  --color-brand-soft: #ffd84d;
-  --color-on-brand: #f2c230;
-  --color-coral: #f2c230;
-  --color-coral-soft: #ffd6c9;
-  --color-coral-ink: #7a2a10;
-  --color-sun-soft: #f2c230;
-  --color-sun-ink: #111111;
-  --color-leaf-soft: #cfe8d2;
-  --color-leaf-ink: #0d4a22;
-  --color-bubble: #ffffff;
+  --color-paper: #f6f4ef;
+  --color-surface: #ffffff;
+  --color-sunk: #ece9e1;
+  --color-line: #dad5ca;
+  --color-ink: #1b1e2c;
+  --color-muted: #5b6070;
+  --color-brand: #2f3f8f;
+  --color-brand-deep: #222f70;
+  --color-brand-soft: #e2e6f5;
+  --color-on-brand: #ffffff;
+  --color-coral: #e8734f;
+  --color-coral-soft: #fbe3da;
+  --color-coral-ink: #8a3418;
+  --color-sun-soft: #fbecd2;
+  --color-sun-ink: #74460a;
+  --color-leaf-soft: #d9ecdd;
+  --color-leaf-ink: #1d5f33;
+  --color-bubble: #e9e6df;
 
-  --font-display: var(--font-zilla), ui-serif, Georgia, serif;
-  --font-sans: var(--font-work-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
 
   --ease-settle: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
@@ -36,7 +36,6 @@ body {
   background: var(--color-paper);
   font-family: var(--font-sans);
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
 }
 
 .tabular {
@@ -44,20 +43,9 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--focus, var(--color-ink));
-  outline-offset: 3px;
-}
-
-/* Black sections flip the focus ring to yellow. */
-.dark-zone {
-  --focus: #f2c230;
-}
-
-/* Panel: 3px black border and a hard 4px offset shadow. Square corners everywhere. */
-.panel {
-  border: 3px solid var(--color-ink);
-  background: var(--color-surface);
-  box-shadow: 4px 4px 0 var(--color-ink);
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 /* One gesture for a state change: a hairline that draws from the left (DEMO-STANDARD.md, Motion). */
