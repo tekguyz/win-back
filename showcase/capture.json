@@ -1,13 +1,19 @@
 {
   "app": "win-back",
-  "takenAt": "2026-11-13T08:31:35.134Z",
+  "takenAt": "2026-11-14T00:46:41.968Z",
   "pictures": [
     "report-desktop-light",
     "approve-desktop-light",
     "replies-desktop-light",
     "report-phone-light",
     "replies-phone-light",
+    "report-feed-light",
+    "approve-feed-light",
     "replies-feed-light",
-    "report-stories-light"
+    "report-stories-light",
+    "approve-stories-light",
+    "report-phone-card-light",
+    "approve-phone-card-light",
+    "replies-phone-card-light"
   ]
 }
