@@ -1,0 +1,454 @@
+{
+  "name": "win-back",
+  "hideBanner": [
+    "Leave the demo"
+  ],
+  "themes": [
+    "light"
+  ],
+  "enter": [
+    {
+      "goto": "https://win-back-customers.vercel.app"
+    },
+    {
+      "click": "Try the demo"
+    },
+    {
+      "waitUrl": "**/demo"
+    }
+  ],
+  "screens": [
+    {
+      "name": "report",
+      "device": "desktop",
+      "steps": [
+        {
+          "goto": "https://win-back-customers.vercel.app/demo"
+        },
+        {
+          "click": "Find who stopped coming back"
+        },
+        {
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "name": "approve",
+      "device": "desktop",
+      "steps": [
+        {
+          "click": "See the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        }
+      ]
+    },
+    {
+      "name": "replies",
+      "device": "desktop",
+      "steps": [
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": "Send the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": "Skip ahead a day"
+        },
+        {
+          "wait": 1000
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "device": "phone",
+      "steps": [
+        {
+          "goto": "https://win-back-customers.vercel.app/demo"
+        },
+        {
+          "click": "Find who stopped coming back"
+        },
+        {
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "name": "replies",
+      "device": "phone",
+      "steps": [
+        {
+          "click": "See the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is('Approve'):not([aria-current])"
+          }
+        },
+        {
+          "click": "Send the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": "Skip ahead a day"
+        },
+        {
+          "wait": 1000
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "device": "feed",
+      "steps": [
+        {
+          "goto": "https://win-back-customers.vercel.app/demo"
+        },
+        {
+          "click": "Find who stopped coming back"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": {
+            "selector": "section[aria-labelledby=report-h]"
+          },
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "name": "approve",
+      "device": "feed",
+      "steps": [
+        {
+          "click": "See the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "wait": 400
+        },
+        {
+          "scrollTo": {
+            "selector": "#drafts-h"
+          },
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "name": "replies",
+      "device": "feed",
+      "steps": [
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "click": "Send the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": "Skip ahead a day"
+        },
+        {
+          "wait": 1000
+        },
+        {
+          "click": "Book Thursday"
+        },
+        {
+          "wait": 1000
+        },
+        {
+          "scrollTo": "Carmen R.",
+          "offset": 36
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "device": "stories",
+      "steps": [
+        {
+          "goto": "https://win-back-customers.vercel.app/demo"
+        },
+        {
+          "click": "Find who stopped coming back"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": {
+            "selector": "section[aria-labelledby=report-h]"
+          },
+          "offset": 120
+        }
+      ]
+    },
+    {
+      "name": "approve",
+      "device": "stories",
+      "steps": [
+        {
+          "click": "See the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "wait": 400
+        },
+        {
+          "scrollTo": {
+            "selector": "#drafts-h"
+          },
+          "offset": 120
+        }
+      ]
+    },
+    {
+      "name": "report",
+      "device": "phone-card",
+      "steps": [
+        {
+          "goto": "https://win-back-customers.vercel.app/demo"
+        },
+        {
+          "click": "Find who stopped coming back"
+        },
+        {
+          "wait": 1500
+        },
+        {
+          "scrollTo": {
+            "selector": "section[aria-labelledby=report-h]"
+          },
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "name": "approve",
+      "device": "phone-card",
+      "steps": [
+        {
+          "click": "See the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "wait": 400
+        },
+        {
+          "scrollTo": {
+            "selector": "#drafts-h"
+          },
+          "offset": 20
+        }
+      ]
+    },
+    {
+      "name": "replies",
+      "device": "phone-card",
+      "steps": [
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "click": {
+            "selector": "button:text-is(\"Approve\"):not([aria-current])"
+          }
+        },
+        {
+          "click": "Send the"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": "Skip ahead a day"
+        },
+        {
+          "wait": 1000
+        },
+        {
+          "click": "Book Thursday"
+        },
+        {
+          "wait": 1000
+        },
+        {
+          "scrollTo": "Carmen R.",
+          "offset": 36
+        }
+      ]
+    }
+  ],
+  "video": {
+    "device": "desktop",
+    "seconds": 4.5,
+    "steps": [
+      {
+        "goto": "https://win-back-customers.vercel.app/demo"
+      }
+    ]
+  },
+  "hideText": [
+    "Built by TEKGUYZ"
+  ],
+  "hideSelector": [
+    "[data-demo-banner]",
+    "header",
+    "nav[aria-label=\"Demo steps\"]"
+  ],
+  "reel": {
+    "steps": [
+      {
+        "goto": "https://win-back-customers.vercel.app/demo"
+      },
+      {
+        "click": "Find who stopped coming back"
+      },
+      {
+        "wait": 1500
+      },
+      {
+        "click": "See the"
+      },
+      {
+        "wait": 800
+      },
+      {
+        "click": {
+          "selector": "button:text-is(\"Approve\"):not([aria-current])"
+        }
+      },
+      {
+        "wait": 400
+      },
+      {
+        "click": {
+          "selector": "button:text-is(\"Approve\"):not([aria-current])"
+        }
+      },
+      {
+        "click": {
+          "selector": "button:text-is(\"Approve\"):not([aria-current])"
+        }
+      },
+      {
+        "click": {
+          "selector": "button:text-is(\"Approve\"):not([aria-current])"
+        }
+      },
+      {
+        "click": "Send the"
+      },
+      {
+        "wait": 800
+      },
+      {
+        "click": "Skip ahead a day"
+      },
+      {
+        "wait": 1000
+      },
+      {
+        "click": "Book Thursday"
+      },
+      {
+        "wait": 1000
+      },
+      {
+        "scroll": 0
+      }
+    ]
+  },
+  "css": "@media (max-aspect-ratio: 3/5) { #main { padding-top: 120px; } }"
+}
